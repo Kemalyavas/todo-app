@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yapılacaklar Listesi</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1><i class="fas fa-check-circle"></i> Yapılacaklar Listesi</h1>
+        <div class="tema-toggle">
+          <i class="fas fa-moon"></i>
+        </div>
+      </header>
+
+      <div class="görev-ekle-kart">
+        <h2>Yeni Görev Ekle</h2>
+        <div class="görev-ekle">
+          <div class="form-grup">
+            <label for="görev-input">Görev Başlığı</label>
+            <input
+              type="text"
+              id="görev-input"
+              placeholder="Yeni görev ekle..."
+            />
+          </div>
+
+          <div class="form-grup">
+            <label for="görev-açıklama">Açıklama</label>
+            <textarea
+              id="görev-açıklama"
+              placeholder="Görev açıklaması (isteğe bağlı)"
+            ></textarea>
+          </div>
+
+          <div class="form-satır">
+            <div class="form-grup">
+              <label for="kategori-seçim">Kategori</label>
+              <select id="kategori-seçim">
+                <option value="genel">Genel</option>
+                <option value="iş">İş</option>
+                <option value="kişisel">Kişisel</option>
+                <option value="alışveriş">Alışveriş</option>
+              </select>
+            </div>
+
+            <div class="form-grup">
+              <label for="görev-tarih">Son Tarih</label>
+              <input type="date" id="görev-tarih" />
+            </div>
+          </div>
+
+          <button id="ekle-btn"><i class="fas fa-plus"></i> Görevi Ekle</button>
+        </div>
+      </div>
+
+      <div class="filtreler-kart">
+        <div class="filtreler">
+          <div class="filtre-grup">
+            <span class="filtre-etiket">Durum:</span>
+            <div class="filtre-butonlar">
+              <button class="filtre-btn aktif" data-filtre="tümü">Tümü</button>
+              <button class="filtre-btn" data-filtre="tamamlanmamış">
+                Tamamlanmamış
+              </button>
+              <button class="filtre-btn" data-filtre="tamamlanmış">
+                Tamamlanmış
+              </button>
+            </div>
+          </div>
+
+          <div class="filtre-grup">
+            <span class="filtre-etiket">Kategori:</span>
+            <select id="kategori-filtre">
+              <option value="tümü">Tüm Kategoriler</option>
+              <option value="genel">Genel</option>
+              <option value="iş">İş</option>
+              <option value="kişisel">Kişisel</option>
+              <option value="alışveriş">Alışveriş</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="görevler-kart">
+        <h2>Görevlerim</h2>
+        <ul id="görev-listesi">
+          <!-- Görevler JavaScript ile buraya eklenecek -->
+        </ul>
+      </div>
+
+      <div class="özet">
+        <div class="özet-bilgi">
+          <p>Toplam: <span id="toplam-görev">0</span> görev</p>
+          <p>Tamamlanan: <span id="tamamlanan-görev">0</span> görev</p>
+        </div>
+        <button id="temizle-btn">
+          <i class="fas fa-trash"></i> Tamamlananları Temizle
+        </button>
+      </div>
+    </div>
+
+    <!-- Düzenleme Modalı -->
+    <div id="düzenle-modal" class="modal">
+      <div class="modal-içerik">
+        <span class="kapat">&times;</span>
+        <h2><i class="fas fa-edit"></i> Görevi Düzenle</h2>
+
+        <div class="form-grup">
+          <label for="düzenle-input">Görev Başlığı</label>
+          <input type="text" id="düzenle-input" placeholder="Görev adı" />
+        </div>
+
+        <div class="form-grup">
+          <label for="düzenle-açıklama">Açıklama</label>
+          <textarea
+            id="düzenle-açıklama"
+            placeholder="Görev açıklaması"
+          ></textarea>
+        </div>
+
+        <div class="form-satır">
+          <div class="form-grup">
+            <label for="düzenle-kategori">Kategori</label>
+            <select id="düzenle-kategori">
+              <option value="genel">Genel</option>
+              <option value="iş">İş</option>
+              <option value="kişisel">Kişisel</option>
+              <option value="alışveriş">Alışveriş</option>
+            </select>
+          </div>
+
+          <div class="form-grup">
+            <label for="düzenle-tarih">Son Tarih</label>
+            <input type="date" id="düzenle-tarih" />
+          </div>
+        </div>
+
+        <button id="kaydet-btn"><i class="fas fa-save"></i> Kaydet</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
